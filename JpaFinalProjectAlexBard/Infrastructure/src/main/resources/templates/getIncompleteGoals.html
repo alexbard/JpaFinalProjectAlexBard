@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>List of Goals</title>
+        <link rel="stylesheet" type="text/css" media="all" href="/employee.css" th:href="@{/employee.css}"/>
+    </head>
+    <body>
+        <h1>List of Goals</h1>
+        <a th:href="@{/goals/getCompleteGoals}">View Complete Goals</a>
+        <table class="styled-table">
+            <thead>
+            <tr>
+                <th>Goal ID</th>
+                <th>Status</th>
+                <th>Content</th>
+                <th> </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="goal : ${goals}" >
+                <td th:text="${goal.goalId}"></td>
+                <td th:text="${goal.status}"></td>
+                <td th:text="${goal.content}"></td>
+                <td>
+                    <form id="completeGoal" th:action="@{/goals/completeGoal/{goalId}(goalId=${goal.goalId})}" method="post">
+                        <input type="submit" value="Complete Goal" />
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

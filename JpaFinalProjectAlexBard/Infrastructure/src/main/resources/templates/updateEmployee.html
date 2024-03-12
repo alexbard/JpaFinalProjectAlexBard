@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Update Employee</title>
+    </head>
+    <body>
+        <h1>Update Employee</h1>
+        <form id="updateForm" th:action="@{/employees/updateEmployee/{employeeId}(employeeId=${employee.employeeId})}" method="post">
+            <label for="firstName">First Name:</label>
+            <input th:value="${employee.firstName}" type="text" id="firstName" name="firstName"><br><br>
+
+            <label for="lastName">Last Name:</label>
+            <input th:value="${employee.lastName}" type="text" id="lastName" name="lastName"><br><br>
+
+            <label for="position">Position:</label>
+            <input th:value="${employee.position}" type="text" id="position" name="position"><br><br>
+
+            <label for="shiftType">Shift Type:</label>
+            <select id="shiftType" name="shiftType">
+                <option th:value="Night" th:selected="${employee.shiftType == 'Night'}">Night</option>
+                <option th:value="Day" th:selected="${employee.shiftType == 'Day'}">Day</option>
+            </select><br><br>
+
+            <label for="rate">Rate:</label>
+            <input th:value="${employee.rate}" type="number" id="rate" name="rate" step=".01"><br><br>
+
+            <label for="status">Status:</label>
+            <select id="status" name="status">
+                <option th:value="Active" th:selected="${employee.status == 'Active'}">Active</option>
+                <option th:value="Inactive" th:selected="${employee.status == 'Inactive'}">Inactive</option>
+            </select><br><br>
+
+            <label for="password">Password:</label>
+            <input th:value="${employee.password}" type="password" id="password" name="password"><br><br>
+
+            <label for="phoneNumber">Phone Number:</label>
+            <input th:value="${employee.phoneNumber}" type="text" id="phoneNumber" name="phoneNumber"><br><br>
+
+            <input type="submit" value="Save Changes" />
+        </form>
+    </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Insert Goal</title>
+    </head>
+    <body>
+        <h1>Create a Goal</h1>
+        <form th:action="@{/goals/createGoal}" th:object="${goal}" method="post">
+
+            <label for="content">Content:</label>
+            <input type="text" id="content" name="content" th:field="*{content}" required><br><br>
+
+            <input type="submit" value="Save Goal" />
+        </form>
+    </body>
+</html>
